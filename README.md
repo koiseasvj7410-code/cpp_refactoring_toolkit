@@ -2,21 +2,19 @@
 
 ### 5 Free Prompts for Safer AI-Assisted Legacy C++ Refactoring
 
-A C++-specific workflow for using ChatGPT, Claude, Copilot, and other LLMs to **understand, test, modernize, and incrementally refactor existing C++ code without blindly rewriting it**.
+This is a C++-specific workflow for using ChatGPT, Claude, Copilot, and other LLMs to understand, test, modernize, and incrementally refactor existing C++ code without blindly rewriting it.
 
-> **Free starter kit:** 5 structured prompts for codebase reconnaissance, module analysis, ownership/lifetime analysis, risk discovery, and characterization testing.
+> **Free starter kit**: 5 structured prompts for codebase reconnaissance, module analysis, ownership/lifetime analysis, risk discovery, and characterization testing.
 
 ## Why this exists
 
-AI coding tools can generate convincing C++ changes very quickly. Legacy C++ is difficult for a different reason: the code often contains implicit ownership, undocumented behavior, hidden dependencies, ABI/API constraints, build-system assumptions, weak test coverage, and historical workarounds.
+AI coding tools can generate convincing C++ changes very quickly, but legacy C++ is difficult for a different reason: the code often contains implicit ownership, undocumented behavior, hidden dependencies, ABI/API constraints, build-system assumptions, weak test coverage, and historical workarounds.
 
 A prompt like:
-
 ```text
 Refactor this class to modern C++.
 ```
-
-may produce syntactically valid code while changing behavior you did not intend to change.
+may produce syntactically valid code that still changes behavior you never intended to change.
 
 This toolkit uses a staged workflow instead:
 
@@ -38,7 +36,7 @@ Compile + test
 Verify + review
 ```
 
-The goal is not to make an AI agent autonomous. The goal is to give it **better context, explicit constraints, and smaller steps**.
+The goal isn't to make an AI agent autonomous; it's to give it better context, explicit constraints, and smaller steps.
 
 ## The 5 free prompts
 
@@ -50,27 +48,25 @@ The goal is not to make an AI agent autonomous. The goal is to give it **better 
 | 04 | [Code Smell & Risk Inventory](prompts/04-risk-inventory.md) | Identifies technical debt, undefined-behavior risks, fragile patterns, coupling, and modernization hazards. |
 | 05 | [Characterization Tests](prompts/05-characterization-tests.md) | Helps capture existing behavior before refactoring so changes can be checked against reality. |
 
-These prompts are designed to be useful **before** asking an AI to rewrite or modernize production code.
+Use these prompts **before** asking an AI to rewrite or modernize production code.
 
 ## When to use this
 
 This workflow is especially useful when working with:
-
-- large or unfamiliar C++ codebases;
-- legacy C++98/03/11/14 code;
-- raw pointers and unclear ownership;
-- code with little or no test coverage;
-- old Visual Studio or custom build systems;
-- gradual C++ standard migrations;
-- CMake modernization;
-- API/ABI-sensitive libraries;
-- undocumented modules and historical code;
-- AI-assisted refactoring where behavior must be preserved.
+- large or unfamiliar C++ codebases
+- legacy C++98/03/11/14 code
+- raw pointers and unclear ownership
+- code with little or no test coverage
+- old Visual Studio or custom build systems
+- gradual C++ standard migrations
+- CMake modernization
+- API/ABI-sensitive libraries
+- undocumented modules and historical code
+- AI-assisted refactoring where behavior must be preserved
 
 ## A safer AI refactoring pattern
 
 Instead of asking an AI to perform a large refactor immediately:
-
 ```text
 1. Understand the code.
 2. Identify constraints.
@@ -84,28 +80,29 @@ Instead of asking an AI to perform a large refactor immediately:
 10. Compare behavior before continuing.
 ```
 
-This makes the AI part of a controlled engineering process rather than treating generated code as automatically correct.
+That way, the AI becomes part of a controlled engineering process instead of being treated as if its generated code were automatically correct.
 
-## What the full toolkit covers
+## What the full toolkit covers?
 
 The paid edition expands this starter workflow into a larger **AI-assisted legacy C++ refactoring system**, including:
+- 30 structured C++-specific prompts
+- master system prompt
+- prompt-selection map
+- legacy modernization workflow
+- ownership and lifetime analysis
+- raw-pointer and RAII investigations
+- API/ABI review
+- CMake modernization
+- undefined-behavior audits
+- concurrency investigations
+- performance investigations
+- characterization and regression testing
+- incremental patch planning
+- code-review checklist
+- worked example
+- troubleshooting and guardrails
 
-- 30 structured C++-specific prompts;
-- master system prompt;
-- prompt-selection map;
-- legacy modernization workflow;
-- ownership and lifetime analysis;
-- raw-pointer and RAII investigations;
-- API/ABI review;
-- CMake modernization;
-- undefined-behavior audits;
-- concurrency investigations;
-- performance investigations;
-- characterization and regression testing;
-- incremental patch planning;
-- code-review checklist;
-- worked example;
-- troubleshooting and guardrails.
+You can find it [here](https://digitalthings.sell.app/product/ai-workflow-refactoring-legacycpp-toolkit).
 
 The free repository is the **investigation / preparation layer**. The full toolkit extends the workflow into planning, modernization, verification, and review.
 
@@ -135,7 +132,6 @@ That is the kind of reasoning these prompts are designed to force before code ch
 ## AI is an assistant, not the verifier
 
 Always validate generated changes with the tools appropriate to your project, such as:
-
 - compiler diagnostics and warnings;
 - unit/integration tests;
 - characterization/regression tests;
